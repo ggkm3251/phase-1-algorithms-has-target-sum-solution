@@ -1,5 +1,14 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  const seenNumbers = new Set();
+  for (const number of array) {
+    const complement = target - number;
+
+    if (seenNumbers.has(complement)) return true;
+
+    seenNumbers.add(number);
+  }
+  return false;
 }
 
 /* 
@@ -8,8 +17,21 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  iterate through each number in the array
+  check if any key of our object is the compliment . If so return true
+  otherwise add that number to the object
+  
 */
-
+/*
+ function hasTargetSum(array, target) {
+    for(let i = 0; i < array.length; 1++){
+      const complement = target -array[i];
+      for(let j = i + 1; j < array.length; j++){
+        if(array[j] === complement) return true;
+      }
+    }
+  }
+ */
 /*
   Add written explanation of your solution here
 */
